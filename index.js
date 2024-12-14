@@ -202,7 +202,7 @@ class App {
                 }
 
                 app.data = data;
-                $("#refLink").html("t.me/FrenlyRobot/miner?startapp=" + data.code);
+                $("#refLink").html("t.me/FrenlyRobotstart=" + data.code);
                 $("#earnings").html(data.earnings);
                 $("#tmu").html(data.tmu.toFixed(9));
                 app.tmu = data.tmu;
