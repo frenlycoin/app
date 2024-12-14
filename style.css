@@ -128,6 +128,16 @@ btn-tg:focus {
     margin-top: -9vh;
 }
 
+.wrapper2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1px;
+    height: 35vh;
+    margin-top: -9vh;
+}
+
 .el {
     position: absolute;
     opacity: 1;

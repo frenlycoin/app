@@ -505,7 +505,8 @@ class App {
     }
 
     resize() {
-        $(".wrapper").height("30vh");
+        $("#wrapper").removeClass("wrapper");
+        $("#wrapper").addClass("wrapper2");
     }
 
 }
