@@ -24,6 +24,7 @@ class App {
     userData;
     miningActive;
     miningRestart;
+    viewportHeight;
 
     constructor() {
         this.simulationRunning = false;
@@ -71,6 +72,8 @@ class App {
             const params = new URLSearchParams(Telegram.WebApp.initData);
             const userData = Object.fromEntries(params);
             userData.user = JSON.parse(userData.user);
+            this.viewportHeight = userData.viewportHeight;
+            alert(this.viewportHeight);
 
             this.userData = userData;
 
