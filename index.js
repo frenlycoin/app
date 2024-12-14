@@ -74,7 +74,6 @@ class App {
             userData.user = JSON.parse(userData.user);
 
             this.viewportHeight = this.tg.viewportHeight;
-            alert(this.viewportHeight);
 
             this.userData = userData;
 
