@@ -105,7 +105,7 @@ class App {
             this.tgid = 7422140567;
             this.loadData();
             $("#first_name").html("Dev");
-            this.resize();
+            // this.resize();
         }
     }
 
@@ -264,6 +264,7 @@ class App {
     countEarnings() {
         app.loadWithdrawStats();
         var earnings = app.getRewards();
+        app.updateProgress();
         $("#earnings").html(earnings);
         app.tmout = setTimeout(app.countEarnings, 1000);
     }
@@ -286,6 +287,22 @@ class App {
         } else {
             r = 0;
             return r.toFixed(9);
+        }
+    }
+
+    updateProgress() {
+        var now = new Date();
+        var mt = new Date(this.data.mining_time);
+        var diffCycle = now - mt;
+        diffCycle /= 60000;
+
+        var percent = diffCycle / 14.10;
+        var width = parseInt(percent);
+
+        $("#progress-bar").width(width + "px");
+
+        if (percent > 10) {
+            $("#progress-bar").html(width + "%");
         }
     }
 
