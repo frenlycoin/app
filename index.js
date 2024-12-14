@@ -302,7 +302,7 @@ class App {
         }
         var width = parseInt(percent);
 
-        $("#progress-bar").width(width + "px");
+        $("#progress-bar").width(width + "%");
 
         if (percent > 20) {
             $("#progress-bar").html(width + "%");
