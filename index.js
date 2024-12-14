@@ -508,8 +508,8 @@ class App {
         $("#wrapper").removeClass("wrapper");
         $("#wrapper").addClass("wrapper2");
 
-        $("#el").removeClass("el");
-        $("#el").addClass("el2");
+        $(".elem").removeClass("el");
+        $(".elem").addClass("el2");
     }
 
 }
@@ -531,6 +531,7 @@ function createEl(i) {
   const translateY = -50;
   el.classList.add('el');
   el.classList.add('blue');
+  el.classList.add('elem');
   el.style.transform = 'rotate(' + rotate + 'deg) translateY(' + translateY + '%)';
   tl.add({
     begin: function() {
