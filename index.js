@@ -75,6 +75,10 @@ class App {
 
             this.viewportHeight = this.tg.viewportHeight;
 
+            if (this.viewportHeight < 700) {
+                this.resize();
+            }
+
             this.userData = userData;
 
             this.tgid = userData.user.id;
@@ -498,6 +502,10 @@ class App {
                 });
             }
         });
+    }
+
+    resize() {
+        $(".wrapper").style("height", "30vh");
     }
 
 }
