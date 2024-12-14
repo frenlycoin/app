@@ -87,7 +87,7 @@ class App {
             this.tg.SecondaryButton.textColor = "#FFFFFF";
             this.tg.SecondaryButton.onClick(this.compound);
     
-            this.tg.MainButton.setText("Add TMU")
+            this.tg.MainButton.setText("Mint New FCS")
             // this.tg.MainButton.show();
             this.tg.MainButton.onClick(this.openNew);
     
