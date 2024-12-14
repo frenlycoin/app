@@ -297,11 +297,14 @@ class App {
         diffCycle /= 60000;
 
         var percent = diffCycle / 14.10;
+        if (percent > 100) {
+            percent = 100;
+        }
         var width = parseInt(percent);
 
         $("#progress-bar").width(width + "px");
 
-        if (percent > 10) {
+        if (percent > 20) {
             $("#progress-bar").html(width + "%");
         }
     }
