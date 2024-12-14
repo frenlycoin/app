@@ -505,7 +505,7 @@ class App {
     }
 
     resize() {
-        $(".wrapper").style("height", "30vh");
+        $(".wrapper").height("30vh");
     }
 
 }
