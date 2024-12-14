@@ -507,6 +507,9 @@ class App {
     resize() {
         $("#wrapper").removeClass("wrapper");
         $("#wrapper").addClass("wrapper2");
+
+        $("#el").removeClass("el");
+        $("#el").addClass("el2");
     }
 
 }
@@ -523,6 +526,7 @@ let tl = anime.timeline({
 
 function createEl(i) {
   let el = document.createElement('div');
+  el.id = "el";
   const rotate = (360 / numberOfEls) * i;
   const translateY = -50;
   el.classList.add('el');
