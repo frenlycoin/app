@@ -105,6 +105,7 @@ class App {
             this.tgid = 7422140567;
             this.loadData();
             $("#first_name").html("Dev");
+            this.resize();
         }
     }
 
