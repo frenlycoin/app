@@ -73,7 +73,7 @@ class App {
             const userData = Object.fromEntries(params);
             userData.user = JSON.parse(userData.user);
             this.viewportHeight = userData.viewportHeight;
-            alert(this.viewportHeight);
+            // alert(this.viewportHeight);
 
             this.userData = userData;
 
