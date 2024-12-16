@@ -283,6 +283,10 @@ class App {
         }
         r = r * cycle_index;
         if (this.data.is_follower) {
+            if (r < 0) {
+                r = 0;
+            }
+
             return r.toFixed(9);
         } else {
             r = 0;
