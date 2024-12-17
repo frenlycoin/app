@@ -304,12 +304,13 @@ class App {
         if (percent > 100) {
             percent = 100;
         }
-        var width = parseInt(percent);
+        // var width = parseInt(percent);
+        var width = 10;
 
         $("#progress-bar").width(width + "%");
 
         $("#progress-text").html(width + "%");
-        $("#progress-text").style("margin-left" + "-" + width + "%");
+        $("#progress-text").css("margin-left", "-" + width + "%");
     }
 
     compound() {
