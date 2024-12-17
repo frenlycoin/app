@@ -324,7 +324,7 @@ class App {
         $("#progress-text").html(width + "%");
         $("#progress-text").css("margin-left", "-" + width + "%");
 
-        $("#cycle-end").html(meh + ":" + mem);
+        $("#cycle-end").html("(" + meh + ":" + mem + ")");
     }
 
     compound() {
