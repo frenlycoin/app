@@ -186,7 +186,7 @@ class App {
                     }
                 }
 
-                if (!data.is_member) {
+                if (!data.is_member && data.is_follower) {
                     $("#infoMessage").html("<small><strong>Join <a href=\"https://t.me/FrenlyCoin\" target=\"_blank\" class=\"text-danger\">@FrenlyCoin</a> group for help and support!</strong></small>")
                     $("#infoMessage").show();
                 }
