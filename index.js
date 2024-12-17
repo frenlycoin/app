@@ -297,6 +297,18 @@ class App {
     updateProgress() {
         var now = new Date();
         var mt = new Date(this.data.mining_time);
+        var me = new Date(mt.getTime() + 1410*60000);
+        var meh = me.getHours();
+        var mem = me.getMinutes();
+
+        if (meh >= 0 && meh <= 9) {
+            meh = "0" + meh;
+        }
+
+        if (mem >= 0 && mem <= 9) {
+            mem = "0" + mem;
+        }
+
         var diffCycle = now - mt;
         diffCycle /= 60000;
 
@@ -311,6 +323,8 @@ class App {
 
         $("#progress-text").html(width + "%");
         $("#progress-text").css("margin-left", "-" + width + "%");
+
+        $("#cycle-end").html(meh + ":" + mem);
     }
 
     compound() {
