@@ -304,8 +304,8 @@ class App {
         if (percent > 100) {
             percent = 100;
         }
-        // var width = parseInt(percent);
-        var width = 10;
+        var width = parseInt(percent);
+        // var width = 10;
 
         $("#progress-bar").width(width + "%");
 
