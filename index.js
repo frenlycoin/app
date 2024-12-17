@@ -308,9 +308,8 @@ class App {
 
         $("#progress-bar").width(width + "%");
 
-        if (percent > 20) {
-            $("#progress-bar").html(width + "%");
-        }
+        $("#progress-text").html(width + "%");
+        $("#progress-text").style("margin-left" + "-" + width + "%");
     }
 
     compound() {
