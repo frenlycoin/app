@@ -173,10 +173,11 @@ btn-tg:focus {
 }
 
 .progress-text {
-    display: flex;
+    position: absolute;
     text-align: center;
     justify-content: center;
     color: #FFF;
     width: 100%;
+    left: 0;
     margin-top: -1px;
 }

@@ -317,12 +317,11 @@ class App {
             percent = 100;
         }
         var width = parseInt(percent);
-        // var width = 10;
+        // var width = 70;
 
         $("#progress-bar").width(width + "%");
 
         $("#progress-text").html(width + "%");
-        $("#progress-text").css("margin-left", "-" + width + "%");
 
         $("#cycle-end").html("(" + meh + ":" + mem + ")");
     }
