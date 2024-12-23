@@ -110,6 +110,7 @@ class App {
     }
 
     openScreen(screen) {
+        this.menuActive = false;
         this.screens.push(screen);
         var current = this.activeScreen;
         this.activeScreen = screen;
@@ -136,6 +137,7 @@ class App {
             this.openScreen("menu");
         } else {
             if (app.screens.length > 1) {
+                console.log("fdsfdsa");
                 app.screens.pop();
                 var screen = app.screens.slice(-1);
                 this.activeScreen = screen;

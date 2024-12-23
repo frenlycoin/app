@@ -25,7 +25,7 @@
         <div class="header mt-3">
           <div class="row">
             <div class="col">
-              <a href="#" onclick="app.menuClicked();"><i class="fa-solid fa-bars menu"></i></a>
+              <a href="javascript:void(0);" onclick="app.menuClicked();"><i class="fa-solid fa-bars menu"></i></a>
             </div>
             <div class="col position-relative">
               <div class="text-end position-absolute top-50 end-0 translate-middle">
@@ -171,6 +171,18 @@
         </div>
       </div>
 
+      <div id="screen_faq" class="hidden section mt-4">
+        <div class="row p-3">
+          <div class="text-center my-3">
+            <i class="fa-solid fa-circle-question section-icon"></i>
+          </div>
+          <p class="text mb-0"><small>
+            <strong>Rewards</strong> (FCS)<br>
+            <span class="text2" id="earningsw">0.000000000</span>
+          </small></p>
+        </div>
+      </div>
+
         <div id="screen_menu" class="hidden section mt-4">
           <div class="row p-3">
             <div class="text-center my-3">
@@ -179,8 +191,9 @@
           </div>
           <div class="row p-3">
             <!-- <p class="ms-3"> <a href="#" class="link-custom" onclick="app.showWithdraw();"><strong>Withdraw</strong></a> </p> -->
-            <p class="ms-3"> <span class="link-custom"><strong>FAQ</strong></span> </p>
+            <p class="ms-3"> <a href="javascript:void(0);" onclick="app.openScreen('faq');" class="link-custom"><strong>FAQ</strong></a> </p>
             <p class="ms-3"> <a href="https://t.me/FrenlyCoin" class="link-custom" target="_blank"><strong>Contact</strong></a> </p>
+            <p class="ms-3"> <a href="javascript:void(0);" onclick="app.openScreen('settings');" class="link-custom"><strong>Settings</strong></a> </p>
           </div>
         </div>
 
@@ -191,7 +204,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./anime.min.js"></script>
-    <script src="./index.js?122"></script>
+    <script src="./index.js?123"></script>
 
   </body>
 </html>
