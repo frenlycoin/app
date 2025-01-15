@@ -571,6 +571,12 @@ class App {
 
         $("#miningyes").removeClass("mt-4");
         $("#miningyes").addClass("mt-2");
+
+        $("#successMessage").removeClass("p-3");
+        $("#errorMessage").removeClass("pb-4");
+        $("#infoMessage").removeClass("mt-1");
+        $(".miner").addClass("p-2");
+        $(".miner").addClass("pb-3");
     }
 
 }
