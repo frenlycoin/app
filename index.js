@@ -105,7 +105,7 @@ class App {
             this.tgid = 7422140567;
             this.loadData();
             $("#first_name").html("Dev");
-            // this.resize();
+            this.resize();
         }
     }
 
@@ -558,6 +558,11 @@ class App {
 
         $(".elem").removeClass("el");
         $(".elem").addClass("el2");
+
+        $("#rewards").removeClass("pb-3");
+        $("#rewards").removeClass("pt-4");
+        $("#rewards").addClass("pb-2");
+        $("#rewards").addClass("pt-3");
     }
 
 }
