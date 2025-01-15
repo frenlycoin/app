@@ -101,6 +101,8 @@ class App {
             $("#first_name").html(userData.user.first_name);
 
             this.loadData();
+
+            Telegram.WebApp.onEvent("activated", this.loadData);
         } catch (e) {
             this.tgid = 7422140567;
             this.loadData();
