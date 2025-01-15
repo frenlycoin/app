@@ -1,6 +1,5 @@
 $( document ).ready(function() {
     const app = new App();
-    Telegram.WebApp.onEvent("activated", app.loadData);
     window["app"] = app;
 });
 
@@ -102,6 +101,10 @@ class App {
             $("#first_name").html(userData.user.first_name);
 
             this.loadData();
+
+            Telegram.WebApp.onEvent("activated", function() {
+                location.reload();
+            });
         } catch (e) {
             this.tgid = 7422140567;
             this.loadData();
