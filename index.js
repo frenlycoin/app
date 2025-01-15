@@ -563,6 +563,14 @@ class App {
         $("#rewards").removeClass("pt-4");
         $("#rewards").addClass("pb-2");
         $("#rewards").addClass("pt-3");
+
+        $(".miner").removeClass("p-3");
+        $(".miner").removeClass("pb-4");
+        $(".miner").addClass("p-2");
+        $(".miner").addClass("pb-3");
+
+        $("#miningyes").removeClass("mt-4");
+        $("#miningyes").addClass("mt-2");
     }
 
 }
