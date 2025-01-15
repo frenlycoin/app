@@ -102,7 +102,7 @@ class App {
 
             this.loadData();
 
-            Telegram.WebApp.onEvent("activated", this.loadData);
+            Telegram.WebApp.onEvent("activated", app.loadData);
         } catch (e) {
             this.tgid = 7422140567;
             this.loadData();
