@@ -231,7 +231,7 @@ class App {
 
                 if (data.boosts != null && data.boosts.length > 0) {
                     console.log(data.boosts[0].link)
-                    $("#health-boosts").html('<strong><a class="link-custom" href="' + data.boosts[0].link + '">' + data.boosts.length + ' Boosts Available</a></strong>');
+                    $("#health-boosts").html('<strong><a class="link-custom" href="https://' + data.boosts[0].link + '">' + data.boosts.length + ' Boosts Available</a></strong>');
                 }
             }
         });
