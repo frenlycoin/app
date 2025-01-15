@@ -329,6 +329,10 @@ class App {
 
         $("#progress-text").html(width + "%");
 
+        $("#health").width(app.data.health + "%");
+
+        $("#health-text").html(app.data.health + "%");
+
         $("#cycle-end").html("(" + meh + ":" + mem + ")");
     }
 

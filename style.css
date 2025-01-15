@@ -134,7 +134,7 @@ btn-tg:focus {
     align-items: center;
     flex-wrap: wrap;
     width: 1px;
-    height: 31vh;
+    height: 25vh;
     margin-top: -6vh;
 }
 
@@ -153,9 +153,9 @@ btn-tg:focus {
     position: absolute;
     opacity: 1;
     width: 2px;
-    height: 8vh;
+    height: 6vh;
     max-height: 110px;
-    /* margin-top: -60px; */
+    margin-top: 5px;
     transform-origin: 50% 100%;
     background: white;
 }
