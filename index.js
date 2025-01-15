@@ -106,6 +106,8 @@ class App {
             this.loadData();
             $("#first_name").html("Dev");
             this.resize();
+            $("#infoMessage").html("<small><strong>Join <a href=\"https://t.me/FrenlyCoin\" target=\"_blank\" class=\"text-danger\">@FrenlyCoin</a> group for help and support!</strong></small>")
+                    $("#infoMessage").show();
         }
     }
 
@@ -572,11 +574,11 @@ class App {
         $("#miningyes").removeClass("mt-4");
         $("#miningyes").addClass("mt-2");
 
-        $("#successMessage").removeClass("p-3");
-        $("#errorMessage").removeClass("pb-4");
-        $("#infoMessage").removeClass("mt-1");
-        $(".miner").addClass("p-2");
-        $(".miner").addClass("pb-3");
+        // $("#successMessage").removeClass("p-3");
+        // $("#errorMessage").removeClass("pb-4");
+        // $("#infoMessage").removeClass("mt-1");
+        // $(".miner").addClass("p-2");
+        // $(".miner").addClass("pb-3");
     }
 
 }
