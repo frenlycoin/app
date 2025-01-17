@@ -294,7 +294,7 @@ class App {
         diff /= 1000;
         diffCycle /= 1000;
         var r = diff * this.tmu / (2400 * 3600);
-        var cycle_index = this.data.cycle_count / ((diffCycle / 3600) / 24);
+        var cycle_index = (this.data.cycle_count + 1) / ((diffCycle / 3600) / 24);
         if (cycle_index > 1) {
             cycle_index = 1;
         }
