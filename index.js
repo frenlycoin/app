@@ -298,7 +298,8 @@ class App {
         if (cycle_index > 1) {
             cycle_index = 1;
         }
-        r = r * cycle_index;
+        var health_index = this.data.health / 100;
+        r = r * cycle_index * health_index;
         if (this.data.is_follower) {
             if (r < 0) {
                 r = 0;
