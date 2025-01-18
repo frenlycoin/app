@@ -342,8 +342,15 @@ class App {
         $("#progress-text").html(width + "%");
 
         $("#health").width(app.data.health + "%");
-
         $("#health-text").html(app.data.health + "%");
+
+        if (app.data.health < 33) {
+            $("#health").removeClass("bg-success");
+            $("#health").addClass("bg-danger");
+        } else if (app.data.health < 66) {
+            $("#health").removeClass("bg-success");
+            $("#health").addClass("bg-warning");
+        }
 
         $("#cycle-end").html("(" + meh + ":" + mem + ")");
     }
