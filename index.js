@@ -3,7 +3,7 @@ $( document ).ready(function() {
     window["app"] = app;
 });
 
-const BACKEND = "https://bot.frenlycoin.com"
+const BACKEND = "https://frenlybot.aintchain.com"
 
 class App {
 
