@@ -3,7 +3,7 @@ $( document ).ready(function() {
     window["app"] = app;
 });
 
-const BACKEND = "https://frenlybot.aintchain.com"
+const BACKEND = "https://subsatirical-predeficiently-lea.ngrok-free.dev"
 
 class App {
 
@@ -177,6 +177,9 @@ class App {
         var ts = new Date().getTime();
         $.ajax({
             method: "GET",
+            headers: {
+                "ngrok-skip-browser-warning": "true"
+            },
             url: BACKEND + "/data/" + this.tgid + "/" + this.ref + "/" + username + "/" + first_name + "?ts=" + ts,
             success: function(data) {
                 app.miningActive = data.cycle_active;
@@ -361,6 +364,9 @@ class App {
 
         $.ajax({
             method: "POST",
+            headers: {
+                "ngrok-skip-browser-warning": "true"
+            },
             url: BACKEND + "/compound/" + app.tgid,
             success: function(data) {
                 clearTimeout(app.tmout);
@@ -388,6 +394,9 @@ class App {
             $("#paymentLoading").fadeIn();
             $.ajax({
                 method: "GET",
+                headers: {
+                    "ngrok-skip-browser-warning": "true"
+                },
                 url: BACKEND + "/paid/" + app.tgid,
                 success: function(data) {
                     $("#paymentLoading").fadeOut(function() {
@@ -426,6 +435,9 @@ class App {
         var ts = new Date().getTime();
         $.ajax({
             method: "GET",
+            headers: {
+                "ngrok-skip-browser-warning": "true"
+            },
             url: BACKEND + "/data/" + this.tgid + "/" + this.ref + "/" + this.userData.user.username + "/" + this.userData.user.first_name + "?ts=" + ts,
             success: function(data) {
                 if (data.is_follower) {
@@ -451,6 +463,9 @@ class App {
             $("#settingsLoading").fadeIn();
             $.ajax({
                 method: "POST",
+                headers: {
+                    "ngrok-skip-browser-warning": "true"
+                },
                 url: BACKEND + "/save/" + app.tgid,
                 data: {
                     address_withdraw: av,
@@ -507,6 +522,9 @@ class App {
                     if (sure) {
                         $.ajax({
                             method: "POST",
+                            headers: {
+                                "ngrok-skip-browser-warning": "true"
+                            },
                             url: BACKEND + "/withdraw/" + app.tgid,
                             success: function(data) {
                                 clearTimeout(app.tmout);
@@ -556,6 +574,9 @@ class App {
     callRestartMining() {
         $.ajax({
             method: "POST",
+            headers: {
+                "ngrok-skip-browser-warning": "true"
+            },
             url: BACKEND + "/restart/" + app.tgid,
             success: function(data) {
                 app.countEarnings();
