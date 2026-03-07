@@ -3,7 +3,7 @@ $( document ).ready(function() {
     window["app"] = app;
 });
 
-const BACKEND = "https://subsatirical-predeficiently-lea.ngrok-free.dev"
+const BACKEND = "https://frenlybot.aintchain.com"
 
 class App {
 
