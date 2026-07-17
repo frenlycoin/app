@@ -312,9 +312,7 @@ class App {
         var earnings = app.getRewards();
         app.updateProgress();
         $("#earnings").html(earnings);
-        
-        var r = app.getRewards();
-        $("#earningsth").html((earnings / 10).toFixed(9));
+        app.updatePriceDisplay();
 
         app.tmout = setTimeout(app.countEarnings, 1000);
     }
