@@ -18,6 +18,7 @@ class App {
     timeLock;
     tmout;
     data;
+    price;
     ref;
     menuActive;
     theme;
@@ -167,6 +168,33 @@ class App {
         }
     }
 
+    normalizePrice(price) {
+        return Number(price || 0) / 1000000000;
+    }
+
+    formatPrice(price) {
+        return Number(price || 0).toFixed(9);
+    }
+
+    updatePriceDisplay() {
+        const price = this.normalizePrice(this.price);
+        const priceText = this.formatPrice(price);
+        if (document.getElementById("newPriceValue")) {
+            $("#newPriceValue").html(priceText);
+        }
+        if (document.getElementById("withdrawPriceValue")) {
+            $("#withdrawPriceValue").html(priceText + " TON");
+        }
+        const rewards = parseFloat($("#earnings").text()) || 0;
+        if (document.getElementById("earningsth")) {
+            $("#earningsth").html((rewards * price).toFixed(9));
+        }
+        const withdrawRewards = parseFloat($("#earningsw").text()) || 0;
+        if (document.getElementById("earningst")) {
+            $("#earningst").html((withdrawRewards * price).toFixed(9));
+        }
+    }
+
     loadData() {
         var username = "undefined";
         var first_name = "undefined";
@@ -182,6 +210,7 @@ class App {
             },
             url: BACKEND + "/data/" + this.tgid + "/" + this.ref + "/" + username + "/" + first_name + "?ts=" + ts,
             success: function(data) {
+                app.price = data.price;
                 app.miningActive = data.cycle_active;
                 app.tg.SecondaryButton.show();
                 app.tg.MainButton.show();
@@ -226,6 +255,7 @@ class App {
                 $("#tmu").html(data.tmu.toFixed(9));
                 app.tmu = data.tmu;
                 app.lastUpdated = new Date(data.last_updated);
+                app.updatePriceDisplay();
                 app.timeLock = new Date(data.time_lock);
                 $("#addressDeposit").val(data.addr_deposit);
                 if (data.addr_withdraw != data.code) {
@@ -440,6 +470,8 @@ class App {
             },
             url: BACKEND + "/data/" + this.tgid + "/" + this.ref + "/" + this.userData.user.username + "/" + this.userData.user.first_name + "?ts=" + ts,
             success: function(data) {
+                app.price = data.price;
+                app.updatePriceDisplay();
                 if (data.is_follower) {
                     app.loadData()
                     tl.play();
@@ -511,7 +543,7 @@ class App {
     loadWithdrawStats() {
         var r = app.getRewards();
         $("#earningsw").html(r);
-        $("#earningst").html((r / 10).toFixed(9));
+        app.updatePriceDisplay();
     }
 
     withdraw() {
