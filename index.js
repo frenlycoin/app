@@ -176,6 +176,12 @@ class App {
         return Number(price || 0).toFixed(9);
     }
 
+    formatNumber(num) {
+        const parts = num.toString().split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        return parts.join('.');
+    }
+
     updatePriceDisplay() {
         const price = this.normalizePrice(this.price);
         const priceText = this.formatPrice(price);
@@ -187,11 +193,11 @@ class App {
         }
         const rewards = parseFloat($("#earnings").text()) || 0;
         if (document.getElementById("earningsth")) {
-            $("#earningsth").html((rewards * price).toFixed(9));
+            $("#earningsth").html(this.formatNumber((rewards * price).toFixed(9)));
         }
         const withdrawRewards = parseFloat($("#earningsw").text()) || 0;
         if (document.getElementById("earningst")) {
-            $("#earningst").html((withdrawRewards * price).toFixed(9));
+            $("#earningst").html(this.formatNumber((withdrawRewards * price).toFixed(9)));
         }
     }
 
@@ -251,7 +257,7 @@ class App {
 
                 app.data = data;
                 $("#refLink").html("t.me/FrenlyRobot?start=" + data.code);
-                $("#earnings").html(data.earnings);
+                $("#earnings").html(this.formatNumber(data.earnings));
                 $("#tmu").html(data.tmu.toFixed(9));
                 app.tmu = data.tmu;
                 app.lastUpdated = new Date(data.last_updated);
@@ -311,7 +317,7 @@ class App {
         app.loadWithdrawStats();
         var earnings = app.getRewards();
         app.updateProgress();
-        $("#earnings").html(earnings);
+        $("#earnings").html(this.formatNumber(earnings));
         app.updatePriceDisplay();
 
         app.tmout = setTimeout(app.countEarnings, 1000);
@@ -540,7 +546,7 @@ class App {
 
     loadWithdrawStats() {
         var r = app.getRewards();
-        $("#earningsw").html(r);
+        $("#earningsw").html(this.formatNumber(r));
         app.updatePriceDisplay();
     }
 
