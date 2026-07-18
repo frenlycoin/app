@@ -257,7 +257,7 @@ class App {
 
                 app.data = data;
                 $("#refLink").html("t.me/FrenlyRobot?start=" + data.code);
-                $("#earnings").html(this.formatNumber(data.earnings));
+                $("#earnings").html(app.formatNumber(data.earnings));
                 $("#tmu").html(data.tmu.toFixed(9));
                 app.tmu = data.tmu;
                 app.lastUpdated = new Date(data.last_updated);
