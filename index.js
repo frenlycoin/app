@@ -317,7 +317,7 @@ class App {
         app.loadWithdrawStats();
         var earnings = app.getRewards();
         app.updateProgress();
-        $("#earnings").html(this.formatNumber(earnings));
+        $("#earnings").html(app.formatNumber(earnings));
         app.updatePriceDisplay();
 
         app.tmout = setTimeout(app.countEarnings, 1000);
