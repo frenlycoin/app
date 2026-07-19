@@ -197,7 +197,7 @@ class App {
         }
         const withdrawRewards = parseFloat($("#earningsw").text()) || 0;
         if (document.getElementById("earningst")) {
-            $("#earningst").html(app.formatNumber((withdrawRewards * price).toFixed(9)));
+            $("#earningst").html(this.formatNumber((withdrawRewards * price).toFixed(9)));
         }
     }
 
