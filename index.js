@@ -334,6 +334,8 @@ class App {
         var cycle_index = (this.data.cycle_count + 1) / ((diffCycle / 3600) / 24);
         if (cycle_index > 1) {
             cycle_index = 1;
+        } else if (cycle_index < 0.01) {
+            cycle_index = 0.01;
         }
         var health_index = this.data.health / 100;
         r = r * cycle_index * health_index;
