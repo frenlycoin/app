@@ -191,7 +191,7 @@ class App {
         if (document.getElementById("withdrawPriceValue")) {
             $("#withdrawPriceValue").html(priceText + " TON");
         }
-        const rewards = app.getRewards
+        const rewards = app.getRewards();
         if (document.getElementById("earningsth")) {
             $("#earningsth").html(this.formatNumber((rewards * price).toFixed(9)));
         }
