@@ -326,7 +326,7 @@ class App {
     getRewards() {
         var now = new Date();
         var diff = now - this.lastUpdated;
-        var mt = new Date(this.data.mining_time);
+        var mt = new Date(this.data.last_updated);
         var diffCycle = now - mt;
         diff /= 1000;
         diffCycle /= 1000;
