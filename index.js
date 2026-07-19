@@ -195,9 +195,9 @@ class App {
         if (document.getElementById("earningsth")) {
             $("#earningsth").html(this.formatNumber((rewards * price).toFixed(9)));
         }
-        const withdrawRewards = parseFloat($("#earningsw").text()) || 0;
+        // const withdrawRewards = parseFloat($("#earningsw").text()) || 0;
         if (document.getElementById("earningst")) {
-            $("#earningst").html(this.formatNumber((withdrawRewards * price).toFixed(9)));
+            $("#earningst").html(this.formatNumber((rewards * price).toFixed(9)));
         }
     }
 
