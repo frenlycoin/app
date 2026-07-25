@@ -8,8 +8,70 @@
     --tg-theme-link-color: #5288C1;
 }
 
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 body {
+    height: 100%;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
     background-color: var(--tg-theme-bg-color);
+}
+
+/* Force portrait mode - hide content in landscape */
+@media screen and (orientation: landscape) {
+    #rotate-device-message {
+        display: flex !important;
+    }
+    main {
+        display: none !important;
+    }
+}
+
+/* Portrait lock overlay */
+#rotate-device-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--tg-theme-bg-color);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+#rotate-device-message i {
+    font-size: 4em;
+    color: var(--tg-theme-button-color);
+    margin-bottom: 20px;
+    animation: rotate-phone 2s ease-in-out infinite;
+}
+
+#rotate-device-message p {
+    color: var(--tg-theme-text-color);
+    font-size: 1.2em;
+}
+
+@keyframes rotate-phone {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(90deg); }
 }
 
 .header {
@@ -118,14 +180,23 @@ btn-tg:focus {
     margin: 0.3em 0.5em;
 }
 
+/* Reduce rotating wheel size by 10% on screens shorter than 1600px height */
+@media (max-height: 1599px) {
+    .wrapper {
+        transform: scale(0.9);
+        transform-origin: center center;
+    }
+}
+
 .wrapper {
     position: relative;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     width: 1px;
-    height: 41vh;
-    margin-top: -9vh;
+    height: 33vh;
+    margin-top: -7vh;
+    margin-bottom: 2vh;
 }
 
 .wrapper2 {
@@ -134,8 +205,9 @@ btn-tg:focus {
     align-items: center;
     flex-wrap: wrap;
     width: 1px;
-    height: 25vh;
-    margin-top: -4vh;
+    height: 20vh;
+    margin-top: -3vh;
+    margin-bottom: 1vh;
 }
 
 .el {
@@ -172,6 +244,12 @@ btn-tg:focus {
     background-color: var(--tg-theme-button-color);
 }
 
+/* Ensure progress bars have proper positioning context */
+.progress {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
 .progress-text {
     position: absolute;
     text-align: center;
@@ -179,5 +257,134 @@ btn-tg:focus {
     color: #FFF;
     width: 100%;
     left: 0;
-    margin-top: -1px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Sticky bottom navigation */
+#bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--tg-theme-secondary-bg-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 0;
+    padding-bottom: max(6px, env(safe-area-inset-bottom));
+    z-index: 1000;
+}
+
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: var(--tg-theme-hint-color);
+    font-size: 0.65em;
+    cursor: pointer;
+    padding: 4px 6px;
+    min-width: 60px;
+    transition: color 0.15s ease;
+}
+
+.nav-btn i {
+    font-size: 1.8em;
+    color: var(--tg-theme-button-color);
+}
+
+.nav-btn span {
+    color: var(--tg-theme-hint-color);
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
+.nav-btn:active i,
+.nav-btn:active span {
+    opacity: 0.7;
+}
+
+/* Boost button - red when boosts are available */
+.nav-btn-boost.boost-available i {
+    color: #C0392B;
+}
+
+.nav-btn-boost.boost-available span {
+    color: #C0392B;
+}
+
+/* Notification dot for nav buttons */
+.nav-dot {
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.nav-dot.dot-danger {
+    background-color: #DC4040;
+}
+
+.nav-dot.dot-warning {
+    background-color: #FFC107;
+}
+
+.nav-btn-referred {
+    position: relative;
+}
+
+/* Add padding to main content so it doesn't hide behind the nav */
+main {
+    padding-bottom: 70px;
+}
+
+/* Toast alert - black semi-transparent box above footer */
+.toast-alert {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: 60px;
+    z-index: 1001;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 8px 14px;
+    text-align: center;
+    font-size: 0.85em;
+    font-weight: 700;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px);
+}
+
+.toast-alert.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#errorMessage small,
+#errorMessage strong {
+    color: #DC4040;
+}
+
+.toast-alert small {
+    color: #28A745;
+}
+
+.toast-alert strong {
+    color: #28A745;
 }
