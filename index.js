@@ -225,9 +225,7 @@ class App {
         if (document.getElementById("withdrawPriceValue")) {
             $("#withdrawPriceValue").html(priceText + " TON");
         }
-        var rewards = Number(app.getRewards());
-        var referral_bonus = Number(app.data.referral_bonus || 0);
-        rewards = rewards + referral_bonus;
+        const rewards = app.getRewards();
         if (document.getElementById("earningsth")) {
             $("#earningsth").html(this.formatNumber((rewards * price).toFixed(9)));
         }
@@ -429,8 +427,6 @@ class App {
     countEarnings() {
         app.loadWithdrawStats();
         var earnings = app.getRewards();
-        var referral_bonus = Number(this.data.referral_bonus || 0);
-        earnings = Number(earnings) + referral_bonus;
         app.updateProgress();
         $("#earnings").html(app.formatNumber(earnings));
         app.updatePriceDisplay();
@@ -458,6 +454,10 @@ class App {
             if (r < 0) {
                 r = 0;
             }
+
+            // Add referral bonus to earnings
+            var referral_bonus = Number(this.data.referral_bonus || 0);
+            r = r + referral_bonus;
 
             return r.toFixed(9);
         } else {
@@ -669,17 +669,13 @@ class App {
     }
 
     loadWithdrawStats() {
-        var r = Number(app.getRewards());
-        var referral_bonus = Number(app.data.referral_bonus || 0);
-        r = r + referral_bonus;
+        var r = app.getRewards();
         $("#earningsw").html(this.formatNumber(r));
         app.updatePriceDisplay();
     }
 
     withdraw() {
-        var r = Number(this.getRewards());
-        var referral_bonus = Number(this.data.referral_bonus || 0);
-        r = r + referral_bonus;
+        var r = this.getRewards();
         if (r > 0.05) {
             if (this.data.addr_withdraw != this.data.code) {
                 this.tg.showConfirm("Are you sure you want to withdraw your rewards?", function(sure) {
