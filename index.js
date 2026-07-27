@@ -431,6 +431,7 @@ class App {
         $("#earnings").html(app.formatNumber(earnings));
         app.updatePriceDisplay();
 
+        clearTimeout(app.tmout);
         app.tmout = setTimeout(app.countEarnings, 1000);
     }
 
@@ -510,6 +511,10 @@ class App {
     }
 
     compound() {
+        // Prevent multiple simultaneous compound requests
+        if (app.compoundInProgress) return;
+        app.compoundInProgress = true;
+
         // app.tg.SecondaryButton.showProgress(true);
         app.miningRestart = false;
 
@@ -522,6 +527,7 @@ class App {
             success: function(data) {
                 clearTimeout(app.tmout);
                 app.loadData();
+                app.compoundInProgress = false;
 
                 // app.tg.SecondaryButton.hideProgress();
 
@@ -531,6 +537,9 @@ class App {
                 setTimeout(function() {
                     $("#successMessage").removeClass("show");
                 }, 5000);
+            },
+            error: function() {
+                app.compoundInProgress = false;
             }
         });
     }
