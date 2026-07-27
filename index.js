@@ -290,7 +290,7 @@ class App {
 
                 app.data = data;
                 $("#refLink").html("t.me/FrenlyRobot?start=" + data.code);
-                var totalEarnings = Number(data.earnings || 0) + Number(data.referral_bonus || 0);
+                var totalEarnings = Number(data.earnings || 0) + (Number(data.earnings || 0) * Number(data.referral_bonus || 0));
                 $("#earnings").html(app.formatNumber(totalEarnings));
                 $("#tmu").html(app.formatNumber(data.tmu.toFixed(9)));
                 app.tmu = data.tmu;
@@ -457,7 +457,7 @@ class App {
 
             // Add referral bonus to earnings
             var referral_bonus = Number(this.data.referral_bonus || 0);
-            r = r + referral_bonus;
+            r = r + (r * referral_bonus);
 
             return r.toFixed(9);
         } else {
